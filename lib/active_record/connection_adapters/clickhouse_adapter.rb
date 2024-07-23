@@ -64,7 +64,7 @@ module ActiveRecord
 
   module ModelSchema
     module ClassMethods
-      delegate :final, :final!, :settings, :settings!, to: :all
+      delegate :clickhouse_final, :clickhouse_final!, :clickhouse_settings, :clickhouse_settings!, to: :all
 
       def is_view
         @is_view || false

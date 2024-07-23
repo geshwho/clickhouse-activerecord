@@ -19,12 +19,12 @@ module CoreExtensions
       #
       # An <tt>ActiveRecord::ActiveRecordError</tt> will be raised if database not ClickHouse.
       # @param [Hash] opts
-      def settings(**opts)
-        spawn.settings!(**opts)
+      def clickhouse_settings(**opts)
+        spawn.clickhouse_settings!(**opts)
       end
 
       # @param [Hash] opts
-      def settings!(**opts)
+      def clickhouse_settings!(**opts)
         assert_mutability!
         check_command('SETTINGS')
         @values[:settings] = (@values[:settings] || {}).merge opts
@@ -38,11 +38,11 @@ module CoreExtensions
       #   # SELECT users.* FROM users FINAL
       #
       # An <tt>ActiveRecord::ActiveRecordError</tt> will be raised if database not ClickHouse.
-      def final
-        spawn.final!
+      def clickhouse_final
+        spawn.clickhouse_final!
       end
 
-      def final!
+      def clickhouse_final!
         assert_mutability!
         check_command('FINAL')
         @values[:final] = true
